@@ -113,16 +113,16 @@
 
 css link
 ```php
-  <link rel="stylesheet" href="../../../assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css">
+  <link rel="stylesheet" href="{{ asset('assets/datatable/datatables.net-bs5/dataTables.bootstrap5.css') }}">
 ```
 
 
 
 script
 ```php
-  <script src="../../../assets/vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="../../../assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
-  <script src="../../../assets/js/data-table.js"></script>
+  <script src="{{ asset('assets/datatable/datatables.net/jquery.dataTables.js') }}"></script>
+  <script src="{{ asset('assets/datatable/datatables.net-bs5/dataTables.bootstrap5.js') }}"></script>
+  <script src="{{ asset('assets/datatable/data-table.js') }}"></script>
 ```
 
 
