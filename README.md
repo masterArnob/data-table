@@ -1,33 +1,35 @@
 # data-table
 ## data table
 ```php
-     <div class="table-responsive">
+      <div class="table-responsive">
                     <table id="dataTableExample" class="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Thumb Image</th>
+                                <th>Admin ID</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>Accountant</td>
-                                <td>Tokyo</td>
-                                <td>33</td>
-                                <td>2008/11/28</td>
-                                <td>$162,700</td>
-                            </tr>
-                          
-                          
                            
-                         
-                          
-                     
+                            @forelse ($products as $item)
+                                <tr>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->thumb_image }}</td>
+                                    <td>{{ $item->admin_id }}</td>
+                                    <td>
+                                        <a href="{{ route('admin.products.edit', $item->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                                        <form action="{{ route('admin.products.destroy', $item->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                No Data Found
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
